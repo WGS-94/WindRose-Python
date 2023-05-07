@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../img/qqicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"/>
+    <title>QQInvite</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        background: #f2f2f2;
+      }
+
+      header {
+        padding: 0.5rem 2rem;
+        background: #008d53;
+        color: white;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+
+        /* border: 1px solid blue; */
+      }
+
+      header div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        /* border: 1px solid red; */
+      }
+
+      header div a {
+        background-color: white;
+        color: #199319;
+        padding: 0.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      header div a:hover {
+        border: 1px solid white;
+        color: white;
+        background: transparent;
+      }
+
+      @media screen and (max-width: 860px) {
+        header {
+          padding: 0 10px;
+          display: flex;
+          flex-direction: column;
+          /* gap: 1rem; */
+          height: auto;
+        }
+
+        header > div ~ div {
+          border-top: 1px solid #eee;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        } 
+
+        header div {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding: 10px 0;
+        }
+
+        header div h4 {
+          font-size: 12px;
+        }
+
+        header img {
+          width: 22%;
+        }
+
+        /* .wrapper {
+          margin: 50px auto 0;
+        } */
+      }
+
+      .wrapper {
+        max-width: 450px;
+        width: 100%;
+        margin: 80px auto 0;
+        padding: 10px;
+
+        /* border: 1px solid red; */
+      }
+
+      .wrapper .form_container {
+        background: #fff;
+        padding: 30px;
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+
+        /* border: 1px solid red; */
+      }
+
+      .heading {
+        background: #015a80;
+        margin: -30px;
+        text-align: center;
+        color: white;
+        font-size: 19px;
+        margin-bottom: 35px;
+        padding: 10px;
+      }
+      .wrapper .form_container .form_item {
+        margin-bottom: 25px;
+      }
+
+      .form_wrap.fullname,
+      .form_wrap.select_box {
+        display: flex;
+      }
+
+      .form_wrap.fullname .form_item,
+      .form_wrap.select_box .form_item {
+        width: 50%;
+      }
+
+      .form_wrap.fullname .form_item:first-child,
+      .form_wrap.select_box .form_item:first-child {
+        margin-right: 4%;
+      }
+
+      .wrapper .form_container .form_item label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .form_item input[type="text"],
+      .form_item select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #c4c4c4;
+        border-radius: 5px;
+      }
+
+      .form_item input[type="text"]:focus {
+        border: 2px solid #008d53;
+      }
+
+      .form_item input[type="text"]::placeholder {
+        font-size: 0.8rem;
+        color: #999;
+      }
+
+      .form_item textarea {
+        width: 100%;
+        height: 9rem;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #c4c4c4;
+        border-radius: 5px;
+        resize: none;
+      }
+
+      .form_item textarea:focus {
+        border: 2px solid #008d53;
+      }
+
+      .form_item textarea::placeholder {
+        font-size: 0.8rem;
+        color: #999;
+      }
+
+      .btn input[type="submit"] {
+        background: #008d53;
+        border: 0;
+        padding: 10px;
+        width: 100%;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        border-radius: 3px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .btn input[type="submit"]:hover {
+        background: #59a012;
+        color: #fff;
+      }
+
+      .form_item i {
+        position: absolute;
+        padding: 10px;
+        /* border: 1px solid red; */
+        /* color: #999; */
+      }
+
+      .failure-icon,
+      .error {
+        color: red;
+      }
+
+      .success-icon {
+        color: #59a012;
+      }
+
+      .error {
+        font-size: 14.5px;
+        margin-top: 5px;
+      }
+
+      .success-icon,
+      .failure-icon {
+        right: 0;
+        opacity: 0;
+      }
+
+      .non-editable {
+        background: #eeeeee86; 
+        border: 2px solid #59a012;
+        color: #333;
+        cursor: not-allowed;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    
+    <header>
+      <div>
+        <img
+          src="https://cdn.discordapp.com/attachments/836686867625541655/1066121537301774466/logo_transparente_branco.png"
+          alt="Logo"
+        />
+        <h4>Gerador de Gráfico de Rosa dos Ventos</h4>
+      </div>
+      <div>
+        <span>{{ namecolab }}</span>
+        <a href="" >Sair <i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="form_container">
+        <form name="form" action="{{ url_for('generate') }}" method="POST">
+
+          <div class="form_wrap">
+            <div class="form_item">
+              <label>Faça o upload dos dados para gerar o gráfico</label>
+              <input
+                type="file"
+                name="file"
+                id="file"
+                required
+              />
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+              <div class="error" id="file"></div>
+            </div>
+          </div>
+
+          <div class="btn">
+            <input type="submit" value="Gerar gráfico" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Targetting all classes & id from HTML
+      document.querySelector('input[name="matriculaop"]').value = '{{ matricula }}';
+  
+      let id = (id) => document.getElementById(id);
+  
+      let classes = (classes) => document.getElementsByClassName(classes);
+  
+      let matriculaop = id("matriculaop"),
+        matriculasl = id("matriculasl"),
+        emails = id("emails"),
+        form = id("form"),
+        errorMsg = classes("error"),
+        successIcon = classes("success-icon"),
+        failureIcon = classes("failure-icon");
+  
+      // Adding the submit event Listener
+  
+      form.addEventListener("submit", (e) => {
+        // e.preventDefault();
+  
+        engine(matriculaop, 0, "Matricula é obrigatório");
+        engine(matriculasl, 1, "Matricula é obrigatório");
+        engine(emails, 2, "Este campo não pode estar em branco");
+        
+      });
+  
+      // engine function which will do all the works
+  
+      let engine = (id, serial, message) => {
+        if (id.value.trim() === "") {
+          errorMsg[serial].innerHTML = message;
+          id.style.border = "2px solid red";
+  
+          // icons
+          failureIcon[serial].style.opacity = "1";
+          successIcon[serial].style.opacity = "0";
+        } else {
+          errorMsg[serial].innerHTML = "";
+          id.style.border = "2px solid #59a012";
+  
+          // icons
+          failureIcon[serial].style.opacity = "0";
+          successIcon[serial].style.opacity = "1";
+        }
+      };
+    </script>
+    
+  </body>
+</html>

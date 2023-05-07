@@ -1,0 +1,5 @@
+FLASK_ENV=development
+# FLASK_ENV=production
+# FLASK_RUN_HOST=10.0.0.19
+# FLASK_RUN_PORT=5000
+FLASK_APP=app.py
