@@ -273,11 +273,45 @@
               <div class="error" id="file"></div>
             </div>
           </div>
+          <div class="upload">
+
+            <label for="file-upload" class="file-upload">
+              <i class='bx bx-cloud-upload'></i> 
+            </label>
+      
+            <h3> Importe seus arquivos </h3>
+            <p> Arraste ou clique para fazer upload</p>
+      
+            <div class="upload-display"> <input id="file-upload" type="file" multiple /> </div>
+            
+          </div>
 
           <div class="btn">
             <input type="submit" value="Gerar gráfico" />
           </div>
         </form>
+        <main>
+          <ul id="file-list">
+
+            <li class="file-item"> 
+              <div class="file-icon"> 
+                <i class='bx bxs-file-blank'></i> 
+              </div>
+    
+              <div class="file-name"> 
+                <div class="top"> <h2> boracodar.pdf </h2> <span class="close"> X </span> </div>
+                <h3> 50MB </h3>
+                <div class="progress-bar-container">
+                      <div class="progress-bar"></div>
+                  <div class="progress-bar-fill"></div>
+                  <div class="progress-bar-text"></div>	
+                  </div>
+                
+              </div>
+            </li>
+    
+          </ul>
+        </main>
       </div>
     </div>
 
