@@ -106,260 +106,23 @@
         margin-bottom: 25px;
       }
 
-  .form_wrap.fullname,
-  .form_wrap.select_box {
-    display: flex;
-  }
-
-  .form_wrap.fullname .form_item,
-  .form_wrap.select_box .form_item {
-    width: 50%;
-  }
-
-  .form_wrap.fullname .form_item:first-child,
-  .form_wrap.select_box .form_item:first-child {
-    margin-right: 4%;
-  }
-
-  .wrapper .form_container .form_item label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-
-  .form_item input[type="text"],
-  .form_item select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #c4c4c4;
-    border-radius: 5px;
-  }
-
-  .form_item input[type="text"]:focus {
-    border: 2px solid #008d53;
-  }
-
-  .form_item input[type="text"]::placeholder {
-    font-size: 0.8rem;
-    color: #999;
-  }
-
-  .form_item textarea {
-    width: 100%;
-    height: 9rem;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #c4c4c4;
-    border-radius: 5px;
-    resize: none;
-  }
-
-  .form_item textarea:focus {
-    border: 2px solid #008d53;
-  }
-
-  .form_item textarea::placeholder {
-    font-size: 0.8rem;
-    color: #999;
-  }
-
-  .btn input[type="submit"] {
-    background: #008d53;
-    border: 0;
-    padding: 10px;
-    width: 100%;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    border-radius: 3px;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .btn input[type="submit"]:hover {
-    background: #59a012;
-    color: #fff;
-  }
-
-  .form_item i {
-    position: absolute;
-    padding: 10px;
-    /* border: 1px solid red; */
-    /* color: #999; */
-  }
-
-  .failure-icon,
-  .error {
-    color: red;
-  }
-
-  .success-icon {
-    color: #59a012;
-  }
-  /* 
-      .error {
-        font-size: 14.5px;
-        margin-top: 5px;
-      }
-
-      .success-icon,
-      .failure-icon {
-        right: 0;
-        opacity: 0;
-      }
-
-      .non-editable {
-        background: #eeeeee86; 
-        border: 2px solid #59a012;
-        color: #333;
-        cursor: not-allowed;
-      }
-
-      .upload {
+      .form_wrap.fullname,
+      .form_wrap.select_box {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        width: 44rem;
-        
-        background: #172c4c; //#5b6b89
-        border: 2px dashed #0e2550;
-        border-radius: 0.8rem;
       }
 
-  .upload h3 {
-    color: var(--text-color);
-    font-size: 1.8rem;
-  }
+      .form_wrap.fullname .form_item,
+      .form_wrap.select_box .form_item {
+        width: 50%;
+      }
 
-    .upload p {
-      font-size: 1.6rem;
-      font-weight: 400;
-      margin-bottom: 4rem;
-    }
-
-    .file-upload {
-      display: inline-block;
-      padding: 6px 12px;
-      cursor: pointer;
-
-      font-size: 6rem;
-      color: var(--text-color);
-    }
-
-    #file-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .file-item {
-      display: flex;
-      align-items: center;
-
-      width: 44em;
-      margin: 2rem;
-      padding: .8rem;
-
-      background: white;
-      color: #575361;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .file-icon{
-      background: #172c4c;
-      border-radius: .4rem;
-    }
-
-    .file-icon i{
-      color: white;
-      font-size: 3rem;
-      padding: 2rem 1.6rem;
-    }
-
-    .file-name {
-      margin: 0 1.2rem;
-      width: 100%;
-      
-      display: flex;
-      flex-direction: column;
-    }
-
-    .file-name .top {
-      display: flex;
-      justify-content: space-between;
-      
-    }
-
-    .file-name h2 {
-      font-weight: 700;
-      font-size: 1.4rem;
-    }
-
-    .file-name h3 {
-      font-weight: 500;
-      font-size: 1.2rem;
-    }
-
-    .progress-bar-container {
-      width: 100%;
-      height: 1.5rem;
-      margin-top: 1rem;
-      background-color: #f2f2f2;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .progress-bar {
-      height: 100%;
-      background-color: #007bff;
-      border-radius: 10px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: width 0.3s ease-in-out;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background-color: #172c4c;
-      border-radius: 10px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      animation: fill-progress-bar 6s ease-in-out forwards;
-    }
-
-  .progress-bar-text {
-    position: absolute;
-    top: 0;
-    width: 40px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
-
-  .upload-display {
-    display: none;
-  }
-
-  .close {
-    font-size: 1.7rem;
-    cursor: pointer;
-  } */
+      .form_wrap.fullname .form_item:first-child,
+      .form_wrap.select_box .form_item:first-child {
+        margin-right: 4%;
+      }
 
 
-    </style>
+  </style>
 
   </head>
   <body>
@@ -376,21 +139,36 @@
 
     <div class="wrapper">
       <div class="form_container">
-        <form name="form" action="{{ url_for('generate') }}" method="POST">
+        <form 
+          name="form" 
+          action="{{ url_for('generate') }}" 
+          method="POST" 
+          enctype="multipart/form-data">
 
           <div class="form_wrap">
             <div class="form_item">
-              <h3>Faça o upload dos dados para gerar o gráfico</h3>
-              <div class="drop_box">
+              <!-- <h3>Faça o upload dos dados para gerar o gráfico</h3> -->
+              <!-- <div class="drop_box">
                 <div>
                   <h4>Importe seu arquivo aqui</h4>
                 </div>
                 <p>Arquivos Suportados: .XLSX, .CSV, .XLS, .XLSB, .XLSB</p>
                 <input type="file" hidden accept=".xlsx,.xls,.csv,.xlsm,.xlsb" id="fileID" style="display:none;">
                 <button class="btn">Escolher arquivo</button>
+              </div> -->
+
+              <div class="upload">
+                <label for="file-upload" class="file-upload">
+                  <i class='bx bx-cloud-upload'></i> 
+                </label>
+                <h3> Importe seus arquivos </h3>
+                <p> Arraste ou clique para fazer upload</p>
+                <div class="upload-display"> <input id="file-upload" type="file" multiple /> </div>
               </div>
             </div>
           </div>
+
+          
         </form>
       </div>
     </div>
