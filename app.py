@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, redirect, request, session, jsonify, flash, url_for
 from decouple import config
-import os
+import pandas as pd
 import time
-import datetime
-import logging
 
 app = Flask(__name__)
 
@@ -12,16 +10,24 @@ app.secret_key = config('SECRET_KEY')
 
 @app.route('/')
 def home():
-  # logging.debug('INÍCIO DO PROGRAMA')
   # Home Page
   return render_template('home.html')
 
 @app.route('/generate', methods=['POST'])
 def generate():
   # Your Python script code here
-
-  flash("Data Inserted Successfully")
-  time.sleep(5)
+  file = request.files['file']
+  if file.filename.endswith('.xlsx'):
+    df = pd.read_excel(file)
+    # Realize aqui a formatação dos dados conforme necessário
+    # Por exemplo, você pode imprimir as colunas e os valores:
+    print(df.columns)
+    print(df.values)
+    return 'Upload e formatação concluídos com sucesso!'
+  else:
+    return 'Por favor, faça o upload de um arquivo XLSX.'
+  # flash("Data Inserted Successfully")
+  # time.sleep(5)
 
   return render_template('success.html')
 
