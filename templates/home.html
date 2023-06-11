@@ -10,215 +10,196 @@
     <title>QQInvite</title>
 
     <style>
-      @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
       * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  font-family: sans-serif;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-body {
-  height: 100vh;
-  background: #f2f2f2;
-}
+      body {
+        height: 100vh;
+        background: #f2f2f2;
+      }
 
-header {
-  padding: 0.5rem 2rem;
-  background: #008d53;
-  color: white;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
+      header {
+        padding: 0.5rem 2rem;
+        background: #008d53;
+        color: white;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+      }
 
-  /* border: 1px solid blue; */
-}
+      header div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        /* border: 1px solid red; */
+      }
 
-header div {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
-  /* border: 1px solid red; */
-}
+      header div a {
+        background-color: white;
+        color: #199319;
+        padding: 0.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+      }
 
-header div a {
-  background-color: white;
-  color: #199319;
-  padding: 0.5rem;
-  text-decoration: none;
-  border-radius: 5px;
-}
+      header div a:hover {
+        border: 1px solid white;
+        color: white;
+        background: transparent;
+      }
 
-header div a:hover {
-  border: 1px solid white;
-  color: white;
-  background: transparent;
-}
+      @media screen and (max-width: 860px) {
+        header {
+          padding: 0 10px;
+          display: flex;
+          flex-direction: column;
+          height: auto;
+        }
 
-@media screen and (max-width: 860px) {
-  header {
-    padding: 0 10px;
+        header > div ~ div {
+          border-top: 1px solid #eee;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        } 
+
+        header div {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding: 10px 0;
+        }
+
+        header div h4 {
+          font-size: 12px;
+        }
+
+        header img {
+          width: 22%;
+        }
+      }
+
+      .wrapper {
+        max-width: 650px;
+        width: 100%;
+        margin: 80px auto 0;
+        padding: 10px;
+      }
+
+      .wrapper .form_container {
+        background: #fff;
+        padding: 30px;
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        /* border: 1px solid red; */
+      }
+
+      .wrapper .form_container .form_item {
+        margin-bottom: 25px;
+      }
+
+  .form_wrap.fullname,
+  .form_wrap.select_box {
     display: flex;
-    flex-direction: column;
-    /* gap: 1rem; */
-    height: auto;
   }
 
-  header > div ~ div {
-    border-top: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  } 
-
-  header div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px 0;
+  .form_wrap.fullname .form_item,
+  .form_wrap.select_box .form_item {
+    width: 50%;
   }
 
-  header div h4 {
-    font-size: 12px;
+  .form_wrap.fullname .form_item:first-child,
+  .form_wrap.select_box .form_item:first-child {
+    margin-right: 4%;
   }
 
-  header img {
-    width: 22%;
+  .wrapper .form_container .form_item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
   }
 
-  /* .wrapper {
-    margin: 50px auto 0;
-  } */
-}
+  .form_item input[type="text"],
+  .form_item select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #c4c4c4;
+    border-radius: 5px;
+  }
 
-.wrapper {
-  max-width: 450px;
-  width: 100%;
-  margin: 80px auto 0;
-  padding: 10px;
+  .form_item input[type="text"]:focus {
+    border: 2px solid #008d53;
+  }
 
-  /* border: 1px solid red; */
-}
+  .form_item input[type="text"]::placeholder {
+    font-size: 0.8rem;
+    color: #999;
+  }
 
-.wrapper .form_container {
-  background: #fff;
-  padding: 30px;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  .form_item textarea {
+    width: 100%;
+    height: 9rem;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #c4c4c4;
+    border-radius: 5px;
+    resize: none;
+  }
 
-  /* border: 1px solid red; */
-}
+  .form_item textarea:focus {
+    border: 2px solid #008d53;
+  }
 
-.heading {
-  background: #015a80;
-  margin: -30px;
-  text-align: center;
-  color: white;
-  font-size: 19px;
-  margin-bottom: 35px;
-  padding: 10px;
-}
-.wrapper .form_container .form_item {
-  margin-bottom: 25px;
-}
+  .form_item textarea::placeholder {
+    font-size: 0.8rem;
+    color: #999;
+  }
 
-.form_wrap.fullname,
-.form_wrap.select_box {
-  display: flex;
-}
+  .btn input[type="submit"] {
+    background: #008d53;
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
 
-.form_wrap.fullname .form_item,
-.form_wrap.select_box .form_item {
-  width: 50%;
-}
+  .btn input[type="submit"]:hover {
+    background: #59a012;
+    color: #fff;
+  }
 
-.form_wrap.fullname .form_item:first-child,
-.form_wrap.select_box .form_item:first-child {
-  margin-right: 4%;
-}
+  .form_item i {
+    position: absolute;
+    padding: 10px;
+    /* border: 1px solid red; */
+    /* color: #999; */
+  }
 
-.wrapper .form_container .form_item label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
+  .failure-icon,
+  .error {
+    color: red;
+  }
 
-.form_item input[type="text"],
-.form_item select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #c4c4c4;
-  border-radius: 5px;
-}
-
-.form_item input[type="text"]:focus {
-  border: 2px solid #008d53;
-}
-
-.form_item input[type="text"]::placeholder {
-  font-size: 0.8rem;
-  color: #999;
-}
-
-.form_item textarea {
-  width: 100%;
-  height: 9rem;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #c4c4c4;
-  border-radius: 5px;
-  resize: none;
-}
-
-.form_item textarea:focus {
-  border: 2px solid #008d53;
-}
-
-.form_item textarea::placeholder {
-  font-size: 0.8rem;
-  color: #999;
-}
-
-.btn input[type="submit"] {
-  background: #008d53;
-  border: 0;
-  padding: 10px;
-  width: 100%;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  border-radius: 3px;
-  cursor: pointer;
-  color: #fff;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.btn input[type="submit"]:hover {
-  background: #59a012;
-  color: #fff;
-}
-
-.form_item i {
-  position: absolute;
-  padding: 10px;
-  /* border: 1px solid red; */
-  /* color: #999; */
-}
-
-.failure-icon,
-.error {
-  color: red;
-}
-
-.success-icon {
-  color: #59a012;
-}
-/* 
+  .success-icon {
+    color: #59a012;
+  }
+  /* 
       .error {
         font-size: 14.5px;
         margin-top: 5px;
@@ -391,11 +372,22 @@ header div a:hover {
         />
         <h4>Gerador de Gráfico de Rosa dos Ventos</h4>
       </div>
-      <div>
-        <span>{{ namecolab }}</span>
-        <a href="" >Sair <i class="fas fa-sign-out-alt"></i></a>
-      </div>
     </header>
+<!-- 
+    <div class="container">
+      <div class="card">
+        <h3>Upload Files</h3>
+        <div class="drop_box">
+          <header>
+            <h4>Select File here</h4>
+          </header>
+          <p>Files Supported: PDF, TEXT, DOC , DOCX</p>
+          <input type="file" hidden accept=".doc,.docx,.pdf" id="fileID" style="display:none;">
+          <button class="btn">Choose File</button>
+        </div>
+    
+      </div>
+    </div> -->
 
     <div class="wrapper">
       <div class="form_container">
@@ -403,16 +395,15 @@ header div a:hover {
 
           <div class="form_wrap">
             <div class="form_item">
-              <label>Faça o upload dos dados para gerar o gráfico</label>
-              <input
-                type="file"
-                name="file"
-                id="file"
-                required
-              />
-              <i class="fas fa-exclamation-circle failure-icon"></i>
-              <i class="far fa-check-circle success-icon"></i>
-              <div class="error" id="file"></div>
+              <h3>Faça o upload dos dados para gerar o gráfico</h3>
+              <div class="drop_box">
+                <div>
+                  <h4>Importe seu arquivo aqui</h4>
+                </div>
+                <p>Arquivos Suportados: .XLSX, .CSV, .XLS, .XLSB, .XLSB</p>
+                <input type="file" hidden accept=".xlsx,.xls,.csv,.xlsm,.xlsb" id="fileID" style="display:none;">
+                <button class="btn">Escolher arquivo</button>
+              </div>
             </div>
           </div>
           <div class="upload">
@@ -427,48 +418,18 @@ header div a:hover {
             <div class="upload-display"> <input id="file-upload" type="file" multiple /> </div>
             
           </div>
-
-          <div class="btn">
-            <input type="submit" value="Gerar gráfico" />
-          </div>
         </form>
-        <main>
-          <ul id="file-list">
-
-            <li class="file-item"> 
-              <div class="file-icon"> 
-                <i class='bx bxs-file-blank'></i> 
-              </div>
-    
-              <div class="file-name"> 
-                <div class="top"> <h2> boracodar.pdf </h2> <span class="close"> X </span> </div>
-                <h3> 50MB </h3>
-                <div class="progress-bar-container">
-                      <div class="progress-bar"></div>
-                  <div class="progress-bar-fill"></div>
-                  <div class="progress-bar-text"></div>	
-                  </div>
-                
-              </div>
-            </li>
-    
-          </ul>
-        </main>
       </div>
     </div>
 
-    <script>
+    <!-- <script>
       // Targetting all classes & id from HTML
       document.querySelector('input[name="matriculaop"]').value = '{{ matricula }}';
   
       let id = (id) => document.getElementById(id);
-  
       let classes = (classes) => document.getElementsByClassName(classes);
   
       let matriculaop = id("matriculaop"),
-        matriculasl = id("matriculasl"),
-        emails = id("emails"),
-        form = id("form"),
         errorMsg = classes("error"),
         successIcon = classes("success-icon"),
         failureIcon = classes("failure-icon");
@@ -477,11 +438,7 @@ header div a:hover {
   
       form.addEventListener("submit", (e) => {
         // e.preventDefault();
-  
         engine(matriculaop, 0, "Matricula é obrigatório");
-        engine(matriculasl, 1, "Matricula é obrigatório");
-        engine(emails, 2, "Este campo não pode estar em branco");
-        
       });
   
       // engine function which will do all the works
@@ -503,7 +460,7 @@ header div a:hover {
           successIcon[serial].style.opacity = "1";
         }
       };
-    </script>
+    </script> -->
     
   </body>
 </html>
