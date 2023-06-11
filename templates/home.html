@@ -143,32 +143,15 @@
           name="form" 
           action="{{ url_for('generate') }}" 
           method="POST" 
-          enctype="multipart/form-data">
-
+          enctype="multipart/form-data"
+        >
           <div class="form_wrap">
             <div class="form_item">
-              <!-- <h3>Faça o upload dos dados para gerar o gráfico</h3> -->
-              <!-- <div class="drop_box">
-                <div>
-                  <h4>Importe seu arquivo aqui</h4>
-                </div>
-                <p>Arquivos Suportados: .XLSX, .CSV, .XLS, .XLSB, .XLSB</p>
-                <input type="file" hidden accept=".xlsx,.xls,.csv,.xlsm,.xlsb" id="fileID" style="display:none;">
-                <button class="btn">Escolher arquivo</button>
-              </div> -->
-
-              <div class="upload">
-                <label for="file-upload" class="file-upload">
-                  <i class='bx bx-cloud-upload'></i> 
-                </label>
-                <h3> Importe seus arquivos </h3>
-                <p> Arraste ou clique para fazer upload</p>
-                <div class="upload-display"> <input id="file-upload" type="file" multiple /> </div>
-              </div>
+              <h3> Importe seus arquivos </h3>
+              <input type="file" name="file" accept=".xlsx">
+              <input type="submit" value="Upload">
             </div>
           </div>
-
-          
         </form>
       </div>
     </div>
