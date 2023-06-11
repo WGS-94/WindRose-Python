@@ -21,15 +21,15 @@ def generate():
     df = pd.read_excel(file)
     # Realize aqui a formatação dos dados conforme necessário
     # Por exemplo, você pode imprimir as colunas e os valores:
-    print(df.columns)
-    print(df.values)
-    return 'Upload e formatação concluídos com sucesso!'
+    print(df)
+    # print(df.columns)
+    # print(df.values)
+    flash("Upload e formatação concluídos com sucesso!")
+    return render_template('success.html')
   else:
     return 'Por favor, faça o upload de um arquivo XLSX.'
   # flash("Data Inserted Successfully")
   # time.sleep(5)
-
-  return render_template('success.html')
 
 if __name__ == '__main__':
   app.run(debug=True, threaded=True)
