@@ -6,6 +6,7 @@ from matplotlib import pyplot as plt
 from math import pi
 from io import BytesIO
 from windrose import WindroseAxes
+import urllib.parse
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -13,11 +14,15 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import base64
 import time
+import os
 matplotlib.use('agg')
+
+# UPLOAD_FOLDER = 'static/uploads/'
 
 app = Flask(__name__)
 
 app.secret_key = config('SECRET_KEY')
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
@@ -33,6 +38,9 @@ def generate():
     # Realize aqui a formatação dos dados conforme necessário
     # print(df)
 
+    # Obtendo o caminho absoluto do diretório atual
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+
     # Imagem 01
     df['velocidad_x'] = df['VelVento'] * np.sin(df['DirVento(°)'] * np.pi / 180.0)
     df['velocidad_y'] = df['VelVento'] * np.cos(df['DirVento(°)'] * np.pi / 180.0)
@@ -43,6 +51,9 @@ def generate():
     _ = df.plot(kind='scatter', x='velocidad_x', y='velocidad_y', alpha=0.35, ax=ax)
     imagem_01 = 'upload/windrose_01.png'
     plt.savefig(imagem_01)
+    caminho_absoluto_01 = os.path.join(diretorio_atual, imagem_01)
+    # Convertendo o caminho de diretório para a notação de URL
+    url_01 = urllib.parse.quote(imagem_01.replace("\\", "/"))
 
     # Imagem 02
     fig, ax = plt.subplots()
@@ -51,12 +62,11 @@ def generate():
     ax.set_legend()
     imagem_02 = 'upload/windrose_02.png'  
     plt.savefig(imagem_02)
+    caminho_absoluto_02 = os.path.join(diretorio_atual, imagem_02)
+    # Convertendo o caminho de diretório para a notação de URL
+    url_02 = urllib.parse.quote(imagem_02.replace("\\", "/"))
 
-    imagens = [imagem_01, imagem_02]
-
-    # host = 'http://127.0.0.1:5000'
-
-    # urls_imagens = [f"{host}/{imagem}" for imagem in imagens]
+    imagens = [caminho_absoluto_01, caminho_absoluto_02]
 
     print(imagens)
 
