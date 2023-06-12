@@ -82,6 +82,12 @@
         <img src="https://cdn-icons-png.flaticon.com/512/7518/7518748.png" alt="Success" />
       </div>
       <p>O script foi executado com sucesso!!</p>
+      <main>
+        {% for imagem in imagens %}
+          <img src="{{imagem }}" alt="Imagem">
+          <!-- <img src="data:image/png;base64, {{ imagem }}" alt="Imagem"> -->
+        {% endfor %}
+      </main>
       <a href="/">Voltar ao início</a>
     </div>
   </div>
